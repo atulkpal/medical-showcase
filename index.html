@@ -6,7 +6,7 @@
   <title>Ashwath AI — Pharmacy & Healthcare Operating Suite | Portfolio Showcase</title>
   <meta name="description" content="Confidential Portfolio Review: High-retention medical explainer reels, 24/7 AI WhatsApp prescription ordering, 0% commission UPI billing gateway & pharmacy inventory automation.">
   
-  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Mobile-first snap scroll feed */
+    /* Smooth vertical snap feed */
     .snap-feed {
       scroll-snap-type: y mandatory;
       -webkit-overflow-scrolling: touch;
@@ -76,32 +76,61 @@
       animation: greenGlow 2.2s infinite;
     }
 
+    /* Bounce helper */
+    @keyframes bounceUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .bounce-guide {
+      animation: bounceUp 1.8s ease-in-out infinite;
+    }
+
+    /* Heart pop animation */
+    @keyframes heartPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+    .heart-active {
+      animation: heartPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      fill: #EF4444 !important;
+      stroke: #EF4444 !important;
+    }
+
+    /* Audio Equalizer Bars */
+    @keyframes barDance {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .eq-bar-1 { animation: barDance 0.6s infinite ease-in-out; }
+    .eq-bar-2 { animation: barDance 0.8s infinite 0.2s ease-in-out; }
+    .eq-bar-3 { animation: barDance 0.5s infinite 0.4s ease-in-out; }
+
     /* Custom video overlay glass */
-    .glass-panel {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(226, 232, 240, 0.9);
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
     }
     .glass-dark {
       background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
-    /* Safe viewport height */
     .safe-h {
       height: 100dvh;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-emerald-500 selection:text-white h-full overflow-hidden">
+<body class="bg-slate-100 text-slate-900 font-sans antialiased selection:bg-emerald-500 selection:text-white h-full overflow-hidden">
 
-  <!-- Desktop Backdrop Container -->
-  <div class="h-full w-full flex flex-col md:flex-row items-center justify-center lg:px-8 xl:px-12 bg-gradient-to-br from-slate-100 via-white to-emerald-50/40">
+  <!-- Desktop Companion Wrapper -->
+  <div class="h-full w-full flex flex-col md:flex-row items-center justify-center lg:px-8 xl:px-12 bg-gradient-to-br from-slate-100 via-white to-emerald-50/50">
     
     <!-- DESKTOP LEFT COMPANION PANEL (Hidden on Mobile) -->
-    <div class="hidden lg:flex flex-col justify-between w-96 xl:w-[420px] h-[92vh] max-h-[880px] p-7 bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200 mr-8 overflow-y-auto">
+    <div class="hidden lg:flex flex-col justify-between w-96 xl:w-[430px] h-[92vh] max-h-[880px] p-7 bg-white rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-200 mr-8 overflow-y-auto">
       <div>
         <!-- Brand Header -->
         <div class="flex items-center justify-between pb-5 border-b border-slate-100">
@@ -113,15 +142,15 @@
             <div>
               <div class="flex items-center gap-1.5">
                 <span class="font-extrabold text-slate-900 text-lg tracking-tight">Ashwath AI</span>
-                <span class="text-[10px] uppercase font-bold px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">Verified</span>
+                <span class="text-[10px] uppercase font-bold px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">CONFIDENTIAL REVIEW</span>
               </div>
-              <p class="text-xs text-slate-500 font-medium">Healthcare Content & Automation</p>
+              <p class="text-xs text-slate-500 font-medium">Pharmacy Growth & Operating Suite</p>
             </div>
           </div>
         </div>
 
         <!-- Animated ECG Line -->
-        <div class="relative h-6 my-4 overflow-hidden rounded-lg bg-emerald-50/50 border border-emerald-100 flex items-center">
+        <div class="relative h-6 my-4 overflow-hidden rounded-lg bg-emerald-50/60 border border-emerald-100 flex items-center">
           <div class="absolute inset-0 flex items-center justify-center">
             <svg class="w-full h-4 text-emerald-500 stroke-current fill-none stroke-[2]" viewBox="0 0 300 20">
               <path d="M 0 10 L 40 10 L 48 4 L 56 16 L 64 2 L 72 18 L 80 10 L 140 10 L 148 4 L 156 16 L 164 2 L 172 18 L 180 10 L 300 10" />
@@ -131,57 +160,66 @@
         </div>
 
         <!-- Showcase Pitch -->
-        <div class="mt-2">
+        <div>
           <span class="text-xs uppercase font-extrabold tracking-wider text-slate-400">Portfolio Showcase</span>
           <h1 class="text-xl font-extrabold text-slate-900 mt-1 leading-snug">
-            Patient Education Reels & Pharmacy Operating Suite
+            Patient Education Reels & Pharmacy Operating Systems
           </h1>
-          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-            10 clinically vetted vertical reels engineered to build patient trust, drive footfall, and power your store operations.
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+            10 clinically vetted explainer reels + complete 4-pillar digital pharmacy operating suite.
           </p>
         </div>
 
-        <!-- 4 Modular Solutions Cards -->
-        <div class="mt-5 space-y-2.5">
-          <div class="p-3 bg-slate-50 hover:bg-emerald-50/40 transition rounded-xl border border-slate-200/80 flex items-start gap-3">
+        <!-- 4 Modular Solution Cards -->
+        <div class="mt-4 space-y-2">
+          <div class="p-3 bg-slate-50 hover:bg-emerald-50/50 transition rounded-xl border border-slate-200/80 flex items-start gap-3 cursor-pointer" onclick="jumpToSlide(2)">
             <div class="p-2 bg-emerald-100 text-emerald-700 rounded-lg shrink-0 mt-0.5">
               <i data-lucide="video" class="w-4 h-4"></i>
             </div>
             <div>
-              <div class="text-xs font-bold text-slate-900">1. Custom Patient Explainer Reels</div>
-              <div class="text-[11px] text-slate-500">Branded storefront, doctor consultation, Hinglish karaoke captions & 9:16 vertical motion art.</div>
+              <div class="text-xs font-bold text-slate-900 flex items-center justify-between">
+                <span>1. Custom Patient Explainer Reels</span>
+                <span class="text-[10px] text-emerald-600 font-semibold">View Card →</span>
+              </div>
+              <div class="text-[11px] text-slate-500">Storefront branding, doctor advisory, Hinglish karaoke captions & 9:16 vertical motion art.</div>
             </div>
           </div>
 
-          <div class="p-3 bg-slate-50 hover:bg-blue-50/40 transition rounded-xl border border-slate-200/80 flex items-start gap-3">
+          <div class="p-3 bg-slate-50 hover:bg-blue-50/50 transition rounded-xl border border-slate-200/80 flex items-start gap-3 cursor-pointer" onclick="jumpToSlide(6)">
             <div class="p-2 bg-blue-100 text-blue-700 rounded-lg shrink-0 mt-0.5">
               <i data-lucide="message-square" class="w-4 h-4"></i>
             </div>
             <div>
-              <div class="text-xs font-bold text-slate-900">2. 24/7 AI WhatsApp Prescription Bot</div>
-              <div class="text-[11px] text-slate-500">Auto prescription scanning, medicine ordering & automated monthly refills for BP/Sugar patients.</div>
+              <div class="text-xs font-bold text-slate-900 flex items-center justify-between">
+                <span>2. 24/7 AI WhatsApp Prescription Bot</span>
+                <span class="text-[10px] text-blue-600 font-semibold">Interactive Demo →</span>
+              </div>
+              <div class="text-[11px] text-slate-500">Auto prescription scanning, medicine ordering & monthly chronic refill reminders.</div>
             </div>
           </div>
 
-          <div class="p-3 bg-emerald-50/70 rounded-xl border border-emerald-200 flex items-start gap-3">
+          <div class="p-3 bg-emerald-50/80 hover:bg-emerald-100/60 transition rounded-xl border border-emerald-200 flex items-start gap-3 cursor-pointer" onclick="jumpToSlide(9)">
             <div class="p-2 bg-emerald-600 text-white rounded-lg shrink-0 mt-0.5 shadow-sm">
               <i data-lucide="credit-card" class="w-4 h-4"></i>
             </div>
             <div>
-              <div class="text-xs font-bold text-emerald-950 flex items-center gap-1.5">
-                3. Smart Billing & 0% UPI PG
-                <span class="text-[9px] bg-emerald-200 text-emerald-800 px-1.5 py-0.2 rounded font-bold">0% Commission</span>
+              <div class="text-xs font-bold text-emerald-950 flex items-center justify-between">
+                <span class="flex items-center gap-1.5">3. Smart Billing & 0% UPI PG <span class="text-[9px] bg-emerald-200 text-emerald-800 px-1.5 py-0.2 rounded font-bold">0% Fees</span></span>
+                <span class="text-[10px] text-emerald-700 font-semibold">Compare →</span>
               </div>
               <div class="text-[11px] text-emerald-800">Direct UPI (GPay, PhonePe, Paytm) + COD with automated instant receipts. Zero recurring fees!</div>
             </div>
           </div>
 
-          <div class="p-3 bg-slate-50 hover:bg-amber-50/40 transition rounded-xl border border-slate-200/80 flex items-start gap-3">
+          <div class="p-3 bg-slate-50 hover:bg-amber-50/50 transition rounded-xl border border-slate-200/80 flex items-start gap-3 cursor-pointer" onclick="jumpToSlide(13)">
             <div class="p-2 bg-amber-100 text-amber-700 rounded-lg shrink-0 mt-0.5">
               <i data-lucide="package-search" class="w-4 h-4"></i>
             </div>
             <div>
-              <div class="text-xs font-bold text-slate-900">4. Inventory & Expiry Loss Engine</div>
+              <div class="text-xs font-bold text-slate-900 flex items-center justify-between">
+                <span>4. Inventory & Expiry Loss Engine</span>
+                <span class="text-[10px] text-amber-700 font-semibold">View Full Suite →</span>
+              </div>
               <div class="text-[11px] text-slate-500">Liquidate slow-moving deadstock & get automated alerts before medicines near expiry.</div>
             </div>
           </div>
@@ -189,29 +227,32 @@
       </div>
 
       <!-- Live ROI Calculator Box -->
-      <div class="mt-4 p-3.5 bg-slate-900 text-white rounded-2xl shadow-lg border border-slate-800">
-        <div class="flex items-center justify-between text-xs text-slate-300 font-semibold mb-1">
-          <span class="flex items-center gap-1"><i data-lucide="calculator" class="w-3.5 h-3.5 text-emerald-400"></i> 0% UPI Gateway Savings</span>
-          <span class="text-emerald-400 font-bold" id="calcTurnoverDisplay">₹5,00,000 / mo</span>
+      <div class="mt-4 p-4 bg-slate-900 text-white rounded-2xl shadow-xl border border-slate-800">
+        <div class="flex items-center justify-between text-xs text-slate-300 font-semibold mb-1.5">
+          <span class="flex items-center gap-1.5"><i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i> 0% UPI Gateway Calculator</span>
+          <span class="text-emerald-400 font-bold bg-slate-800 px-2 py-0.5 rounded-full" id="calcTurnoverDisplay">₹5,00,000 / mo</span>
         </div>
-        <input type="range" min="100000" max="2500000" step="50000" value="500000" id="turnoverSlider" class="w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-700 rounded-lg">
-        <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-800 text-xs">
+        <input type="range" min="100000" max="2500000" step="50000" value="500000" id="turnoverSlider" class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-700 rounded-lg my-2">
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-xs">
           <span class="text-slate-400">Your Annual Fee Savings:</span>
-          <span class="text-emerald-400 font-extrabold text-sm" id="calcSavingsDisplay">₹1,20,000 / yr</span>
+          <span class="text-emerald-400 font-black text-base" id="calcSavingsDisplay">₹1,20,000 / yr</span>
         </div>
       </div>
 
       <!-- Action Footer -->
-      <div class="pt-4 border-t border-slate-100">
-        <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20I%20reviewed%20your%2010%20medical%20reels%20and%20would%20like%20to%20discuss%20custom%20branding%20and%200%25%20UPI%20gateway%20setup." target="_blank" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 text-sm transition">
+      <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+        <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20I%20reviewed%20your%2010%20medical%20reels%20and%20would%20like%20to%20discuss%20custom%20branding%20and%200%25%20UPI%20gateway%20setup." target="_blank" class="flex-1 py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 text-sm transition">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
-          Chat on WhatsApp (+91 87008 00175)
+          WhatsApp (+91 87008 00175)
         </a>
+        <button onclick="toggleDrawer()" class="p-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition" title="Browse Episodes">
+          <i data-lucide="list" class="w-5 h-5"></i>
+        </button>
       </div>
     </div>
 
-    <!-- PHONE MOCKUP / MOBILE FEED WRAPPER -->
-    <div class="relative w-full h-full md:safe-h md:w-[410px] md:max-h-[860px] md:rounded-[44px] md:shadow-2xl md:shadow-slate-300/80 md:border-[10px] md:border-slate-900 bg-black overflow-hidden flex flex-col">
+    <!-- PHONE MOCKUP / MOBILE FEED CONTAINER -->
+    <div class="relative w-full h-full md:safe-h md:w-[410px] md:max-h-[860px] md:rounded-[44px] md:shadow-2xl md:shadow-slate-300/90 md:border-[10px] md:border-slate-900 bg-black overflow-hidden flex flex-col">
       
       <!-- iPhone Notch / Dynamic Island (Desktop Frame only) -->
       <div class="hidden md:flex absolute top-0 left-0 right-0 z-50 justify-center pt-2.5 pointer-events-none">
@@ -221,27 +262,79 @@
         </div>
       </div>
 
+      <!-- TOP STORY PROGRESS SEGMENTS BAR (Instagram/Reels Style) -->
+      <div class="absolute top-2 md:top-8 left-3 right-3 z-40 flex items-center gap-1 pointer-events-none" id="storySegments">
+        <!-- 14 story dashes rendered dynamically by JS -->
+      </div>
+
       <!-- TOP FLOATING HEADER (Mobile & Desktop) -->
-      <div class="absolute top-0 left-0 right-0 z-40 p-3 pt-4 md:pt-8 bg-gradient-to-b from-black/80 via-black/40 to-transparent flex items-center justify-between pointer-events-none">
+      <div class="absolute top-4 md:top-11 left-0 right-0 z-40 px-3.5 flex items-center justify-between pointer-events-none">
         <div class="flex items-center gap-2 pointer-events-auto">
-          <div class="flex items-center gap-1.5 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200/50">
+          <div class="flex items-center gap-1.5 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full shadow-md border border-slate-200/80">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span class="text-xs font-extrabold text-slate-900 tracking-tight">Ashwath AI</span>
-            <span class="text-[9px] text-emerald-700 font-bold bg-emerald-100 px-1 rounded">REVIW COPY</span>
+            <span class="text-xs font-black text-slate-900 tracking-tight">Ashwath AI</span>
+            <span class="text-[9px] text-emerald-800 font-extrabold bg-emerald-100 px-1.5 py-0.5 rounded-full uppercase">REVIEW COPY</span>
           </div>
         </div>
 
         <div class="flex items-center gap-2 pointer-events-auto">
-          <!-- Audio Toggle Button -->
-          <button id="globalMuteBtn" class="p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition" title="Toggle Sound">
-            <i data-lucide="volume-x" id="muteIcon" class="w-4 h-4"></i>
+          <!-- Audio Toggle Button with Live Equalizer -->
+          <button id="globalMuteBtn" class="px-2.5 py-1.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition flex items-center gap-1.5" title="Toggle Sound">
+            <div id="eqVisualizer" class="flex items-end gap-0.5 h-3">
+              <span class="w-0.5 bg-emerald-400 rounded-full h-1"></span>
+              <span class="w-0.5 bg-emerald-400 rounded-full h-2"></span>
+              <span class="w-0.5 bg-emerald-400 rounded-full h-1"></span>
+            </div>
+            <span class="text-[11px] font-bold" id="muteLabel">Mute</span>
           </button>
           
-          <!-- WhatsApp Quick Pill -->
-          <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20I%20am%20watching%20your%2010%20reels%20showcase." target="_blank" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs rounded-full shadow-md flex items-center gap-1.5 transition">
-            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-            <span>Chat</span>
-          </a>
+          <!-- Episode Switcher Drawer Pill -->
+          <button onclick="toggleDrawer()" class="p-2 bg-white/95 backdrop-blur-md text-slate-800 rounded-full shadow-md hover:bg-white transition" title="All Episodes">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- REELS INTERACTION RAIL (Right Edge Overlay) -->
+      <div class="absolute right-3 bottom-24 z-30 flex flex-col items-center gap-4 text-white pointer-events-auto" id="reelsRail">
+        <!-- Heart / Like Button -->
+        <button onclick="toggleHeart(this)" class="flex flex-col items-center gap-1 group">
+          <div class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-black/60 transition shadow-lg">
+            <i data-lucide="heart" class="w-5 h-5 heart-icon stroke-white"></i>
+          </div>
+          <span class="text-[10px] font-bold heart-count">1.8k</span>
+        </button>
+
+        <!-- WhatsApp Inquire Button -->
+        <button onclick="inquireActiveEpisode()" class="flex flex-col items-center gap-1 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-600/90 backdrop-blur-md border border-emerald-400/30 flex items-center justify-center group-hover:bg-emerald-600 transition shadow-lg">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-white text-emerald-600"></i>
+          </div>
+          <span class="text-[10px] font-bold">Inquire</span>
+        </button>
+
+        <!-- Share / Copy Link Button -->
+        <button onclick="copyShareLink()" class="flex flex-col items-center gap-1 group">
+          <div class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-black/60 transition shadow-lg">
+            <i data-lucide="share-2" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-bold">Share</span>
+        </button>
+      </div>
+
+      <!-- FLOATING SWIPE-UP GUIDE (First slide hint, disappears on scroll) -->
+      <div id="swipeHint" class="absolute bottom-16 left-0 right-0 z-30 flex justify-center pointer-events-none transition-opacity duration-500">
+        <div class="px-3.5 py-1.5 bg-black/70 backdrop-blur-md rounded-full text-white text-[11px] font-semibold flex items-center gap-1.5 border border-white/20 shadow-lg bounce-guide">
+          <span>Swipe up for next reel</span>
+          <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- TOAST NOTIFICATION -->
+      <div id="toastBox" class="absolute top-20 left-4 right-4 z-50 flex justify-center pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2">
+        <div class="px-4 py-2 bg-slate-900/95 text-white text-xs font-bold rounded-full shadow-2xl border border-slate-700 flex items-center gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+          <span id="toastMsg">Copied showcase link to clipboard!</span>
         </div>
       </div>
 
@@ -249,63 +342,55 @@
       <div id="reelFeed" class="snap-feed w-full h-full overflow-y-scroll overflow-x-hidden relative bg-black">
         
         <!-- ==================== REEL 01 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="0" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="0" data-type="reel" data-title="Fatty Liver Disease (NAFLD)">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="metadata" poster="thumbnails/ep01-fatty-liver.jpg">
             <source src="videos/ep01-fatty-liver.mp4" type="video/mp4">
           </video>
           
-          <!-- Bottom Overlay Info -->
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 01 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 01 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Fatty Liver Disease (NAFLD)</h3>
+            <h3 class="text-base font-extrabold leading-snug">Fatty Liver Disease (NAFLD)</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Silent symptoms, reversible lifestyle triggers & liver safety.</p>
-          </div>
-          
-          <div class="play-indicator absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 transition-opacity">
-            <div class="p-4 bg-black/60 rounded-full text-white backdrop-blur-sm">
-              <i data-lucide="play" class="w-8 h-8 fill-white"></i>
-            </div>
           </div>
         </section>
 
         <!-- ==================== REEL 02 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="1" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="1" data-type="reel" data-title="Type 2 Diabetes & Insulin Resistance">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep02-diabetes-insulin.jpg">
             <source src="videos/ep02-diabetes-insulin.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 02 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 02 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Type 2 Diabetes & Insulin Resistance</h3>
+            <h3 class="text-base font-extrabold leading-snug">Type 2 Diabetes & Insulin Resistance</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Blood sugar spikes, HbA1c control & muscle glucose uptake.</p>
           </div>
         </section>
 
         <!-- ==================== AD CARD 1: HOW ASHWATH AI HELPS PHARMACIES ==================== -->
-        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-white text-slate-900" data-index="2" data-type="ad">
+        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-white text-slate-900" data-index="2" data-type="ad" data-title="Module 1: Custom Branded Reels">
           <div class="pt-12">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold mb-3">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-extrabold mb-3 shadow-sm">
               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i>
-              How Ashwath AI Helps Your Pharmacy
+              Module 1: Custom Patient Reels
             </div>
-            <h2 class="text-2xl font-extrabold text-slate-900 leading-tight">
-              Turn Casual Patients Into Loyal Lifetime Customers
+            <h2 class="text-2xl font-black text-slate-900 leading-tight">
+              Turn Casual Patients Into Loyal Repeat Footfall
             </h2>
             <p class="text-xs text-slate-600 mt-2">
-              Patients remember visual stories 4.2× better than generic pamphlets. We brand and automate your entire social media presences.
+              Patients retain video 4.2× longer than printed flyers. We customize these reels with your store name, discounts & doctor disclaimer.
             </p>
 
-            <!-- Features Grid -->
-            <div class="mt-6 space-y-3">
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-3 shadow-sm">
-                <div class="w-9 h-9 rounded-lg bg-emerald-500 text-white flex items-center justify-center shrink-0 font-bold">
-                  <i data-lucide="palette" class="w-5 h-5"></i>
+            <div class="mt-5 space-y-2.5">
+              <div class="p-3 bg-slate-50 border border-slate-200/90 rounded-2xl flex items-center gap-3 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 font-bold shadow-md shadow-emerald-500/20">
+                  <i data-lucide="store" class="w-5 h-5"></i>
                 </div>
                 <div>
                   <div class="text-xs font-bold text-slate-900">Custom Storefront & Logo Branding</div>
@@ -313,291 +398,299 @@
                 </div>
               </div>
 
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-3 shadow-sm">
-                <div class="w-9 h-9 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0 font-bold">
+              <div class="p-3 bg-slate-50 border border-slate-200/90 rounded-2xl flex items-center gap-3 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center shrink-0 font-bold shadow-md shadow-blue-500/20">
                   <i data-lucide="subtitles" class="w-5 h-5"></i>
                 </div>
                 <div>
                   <div class="text-xs font-bold text-slate-900">Dynamic Hinglish Karaoke Captions</div>
-                  <div class="text-[11px] text-slate-500">Every spoken word highlighted in sync with zero dead audio silences.</div>
+                  <div class="text-[11px] text-slate-500">Active words highlight in sync with audio with zero dead silences.</div>
                 </div>
               </div>
 
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-3 shadow-sm">
-                <div class="w-9 h-9 rounded-lg bg-indigo-500 text-white flex items-center justify-center shrink-0 font-bold">
+              <div class="p-3 bg-slate-50 border border-slate-200/90 rounded-2xl flex items-center gap-3 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shrink-0 font-bold shadow-md shadow-purple-500/20">
                   <i data-lucide="calendar" class="w-5 h-5"></i>
                 </div>
                 <div>
-                  <div class="text-xs font-bold text-slate-900">Full Monthly Social Media Scheduling</div>
-                  <div class="text-[11px] text-slate-500">30 reels auto-posted to Instagram, YouTube Shorts & Facebook Reels.</div>
+                  <div class="text-xs font-bold text-slate-900">30 Reels Monthly Auto-Scheduling</div>
+                  <div class="text-[11px] text-slate-500">Auto-published directly to your Instagram, YouTube & Facebook.</div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="pb-6">
-            <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between">
+            <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between shadow-sm">
               <div>
-                <span class="text-[10px] uppercase font-bold text-emerald-800">Ready to Brand Your Store?</span>
-                <div class="text-xs font-extrabold text-emerald-950">Deploy 30 Reels Within 24-48 Hours</div>
+                <span class="text-[10px] uppercase font-bold text-emerald-800">Launch Your Content</span>
+                <div class="text-xs font-black text-emerald-950">Deployed Within 24-48 Hours</div>
               </div>
-              <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20tell%20me%20more%20about%20custom%20branded%20reels." target="_blank" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition">
+              <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20tell%20me%20more%20about%20custom%20branded%20reels." target="_blank" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition">
                 Inquire
               </a>
             </div>
-            <div class="text-center text-[11px] text-slate-400 mt-3">↓ Swipe down to continue watching reels</div>
+            <div class="text-center text-[11px] text-slate-400 mt-3 font-medium">↓ Swipe down to continue watching reels</div>
           </div>
         </section>
 
         <!-- ==================== REEL 03 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="3" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="3" data-type="reel" data-title="Hypertension & High Blood Pressure">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep03-hypertension-bp.jpg">
             <source src="videos/ep03-hypertension-bp.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 03 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 03 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Hypertension & High Blood Pressure</h3>
+            <h3 class="text-base font-extrabold leading-snug">Hypertension & High Blood Pressure</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">140/90 danger zone, arterial elasticity & sodium impact.</p>
           </div>
         </section>
 
         <!-- ==================== REEL 04 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="4" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="4" data-type="reel" data-title="Acid Reflux & Severe GERD">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep04-gerd-acidity.jpg">
             <source src="videos/ep04-gerd-acidity.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 04 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 04 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Acid Reflux & Severe GERD</h3>
+            <h3 class="text-base font-extrabold leading-snug">Acid Reflux & Severe GERD</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Stomach pH 2 acid, lower esophageal sphincter failure & nighttime relief.</p>
           </div>
         </section>
 
         <!-- ==================== REEL 05 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="5" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="5" data-type="reel" data-title="Cholesterol & Plaque Buildup">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep05-cholesterol-plaque.jpg">
             <source src="videos/ep05-cholesterol-plaque.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 05 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 05 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Cholesterol & Plaque Buildup</h3>
+            <h3 class="text-base font-extrabold leading-snug">Cholesterol & Plaque Buildup</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">LDL vs HDL, arterial narrowing & cardiovascular crisis prevention.</p>
           </div>
         </section>
 
-        <!-- ==================== AD CARD 2: INTERACTIVE WHATSAPP BOT DEMO ==================== -->
-        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-slate-900 text-white" data-index="6" data-type="ad">
-          <div class="pt-12">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold mb-3">
+        <!-- ==================== AD CARD 2: INTERACTIVE WHATSAPP BOT PLAYGROUND ==================== -->
+        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-slate-900 text-white" data-index="6" data-type="ad" data-title="Module 2: AI WhatsApp Rx Bot">
+          <div class="pt-10">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-extrabold mb-2.5">
               <i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-400"></i>
-              Module 2: AI WhatsApp Commerce
+              Module 2: Interactive AI WhatsApp Bot
             </div>
-            <h2 class="text-2xl font-extrabold leading-tight">
-              24/7 Prescription Reading & Chronic Refill Bot
+            <h2 class="text-2xl font-black leading-tight">
+              24/7 Prescription Scanning & Chronic Refill Engine
             </h2>
-            <p class="text-xs text-slate-400 mt-1.5">
-              Never miss a prescription. AI reads patient handwriting, calculates bills, and sends automatic monthly refill reminders.
+            <p class="text-xs text-slate-400 mt-1">
+              Tap the buttons below to test live bot responses!
             </p>
 
-            <!-- Simulated WhatsApp Chat Box -->
-            <div class="mt-4 bg-slate-800/90 border border-slate-700 rounded-2xl p-3 shadow-lg font-sans">
-              <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-700/80">
+            <!-- Interactive Simulated WhatsApp Chat Window -->
+            <div class="mt-3.5 bg-slate-950/90 border border-slate-800 rounded-2xl p-3 shadow-2xl font-sans" id="chatWindow">
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
                 <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold">Rx</div>
-                  <span class="text-xs font-bold text-white">Your Pharmacy AI Bot</span>
+                  <div class="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-black">Rx</div>
+                  <div>
+                    <span class="text-xs font-bold text-white block leading-tight">Your Store AI Bot</span>
+                    <span class="text-[9px] text-emerald-400 font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> Online 24/7</span>
+                  </div>
                 </div>
-                <span class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span> Online</span>
+                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">Interactive Demo</span>
               </div>
 
-              <div class="space-y-2 text-xs">
-                <!-- Patient Msg -->
+              <!-- Messages Stream -->
+              <div class="space-y-2 text-xs max-h-48 overflow-y-auto pr-1" id="chatMessages">
                 <div class="flex justify-end">
-                  <div class="bg-emerald-700 text-white px-3 py-1.5 rounded-xl rounded-tr-none max-w-[85%]">
-                    <p class="text-[11px]">📎 [Photo: Doctor Prescription for Telmisartan & Metformin]</p>
+                  <div class="bg-emerald-700 text-white px-3 py-1.5 rounded-xl rounded-tr-none max-w-[85%] text-[11px]">
+                    📎 [Doctor Rx: Telmisartan 40mg + Metformin 500mg]
                   </div>
                 </div>
 
-                <!-- Bot Response -->
                 <div class="flex justify-start">
-                  <div class="bg-slate-700 text-slate-200 px-3 py-2 rounded-xl rounded-tl-none max-w-[90%] space-y-1">
-                    <p class="font-bold text-emerald-300 text-[11px]">✓ Prescription Verified (2 Items):</p>
+                  <div class="bg-slate-800 text-slate-200 px-3 py-2 rounded-xl rounded-tl-none max-w-[90%] space-y-1">
+                    <p class="font-bold text-emerald-400 text-[11px]">✓ Prescription Verified (2 Items):</p>
                     <p class="text-[10px] text-slate-300">• Telmisartan 40mg (30 Tabs) — ₹120</p>
                     <p class="text-[10px] text-slate-300">• Metformin 500mg (30 Tabs) — ₹85</p>
-                    <div class="pt-1 mt-1 border-t border-slate-600 flex items-center justify-between">
+                    <div class="pt-1 mt-1 border-t border-slate-700 flex items-center justify-between">
                       <span class="font-bold text-white">Total: ₹205</span>
-                      <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">Flat 40% Off</span>
+                      <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold">Flat 40% Off</span>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- Chronic Refill Auto Reminder -->
-                <div class="flex justify-start">
-                  <div class="bg-blue-900/60 border border-blue-700/60 text-blue-200 px-3 py-1.5 rounded-xl text-[10px]">
-                    🔔 <strong>Auto-Refill:</strong> Scheduled reminder for Day 28 before patient runs out of BP pills!
-                  </div>
-                </div>
+              <!-- Interactive Prompt Buttons (Playground) -->
+              <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center gap-1.5 overflow-x-auto pb-1 text-[10px]">
+                <button onclick="addChatMsg('refill')" class="px-2.5 py-1 bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-blue-200 rounded-lg shrink-0 transition">
+                  🔔 Test Refill Alert
+                </button>
+                <button onclick="addChatMsg('pay')" class="px-2.5 py-1 bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-200 rounded-lg shrink-0 transition">
+                  ⚡ Test 0% UPI Link
+                </button>
+                <button onclick="addChatMsg('delivery')" class="px-2.5 py-1 bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 text-purple-200 rounded-lg shrink-0 transition">
+                  🛵 Delivery Update
+                </button>
               </div>
             </div>
           </div>
 
           <div class="pb-6">
-            <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20tell%20me%20about%20the%20AI%20WhatsApp%20Prescription%20Bot." target="_blank" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
+            <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20tell%20me%20about%20the%20AI%20WhatsApp%20Prescription%20Bot." target="_blank" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
-              Get This WhatsApp Bot for Your Store
+              Deploy This WhatsApp Bot for Your Store
             </a>
-            <div class="text-center text-[11px] text-slate-500 mt-3">↓ Swipe down to continue watching reels</div>
+            <div class="text-center text-[11px] text-slate-500 mt-2 font-medium">↓ Swipe down to continue watching reels</div>
           </div>
         </section>
 
         <!-- ==================== REEL 06 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="7" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="7" data-type="reel" data-title="Uric Acid & Gout Attack">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep06-uric-acid-gout.jpg">
             <source src="videos/ep06-uric-acid-gout.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 06 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 06 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Uric Acid & Gout Attack</h3>
+            <h3 class="text-base font-extrabold leading-snug">Uric Acid & Gout Attack</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Purine breakdown, sharp crystals in big toe joints & kidney clearance.</p>
           </div>
         </section>
 
         <!-- ==================== REEL 07 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="8" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="8" data-type="reel" data-title="Hypothyroidism & Slow Metabolism">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep07-hypothyroidism.jpg">
             <source src="videos/ep07-hypothyroidism.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 07 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 07 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Hypothyroidism & Slow Metabolism</h3>
+            <h3 class="text-base font-extrabold leading-snug">Hypothyroidism & Slow Metabolism</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">TSH elevation, chronic exhaustion, brain fog & unexplained weight gain.</p>
           </div>
         </section>
 
         <!-- ==================== AD CARD 3: 0% COMMISSION UPI GATEWAY ==================== -->
-        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-white text-slate-900" data-index="9" data-type="ad">
-          <div class="pt-12">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold mb-3">
+        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-white text-slate-900" data-index="9" data-type="ad" data-title="Module 3: 0% Commission UPI PG">
+          <div class="pt-10">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-extrabold mb-2.5 shadow-sm">
               <i data-lucide="percent" class="w-3.5 h-3.5 text-emerald-600"></i>
-              Module 3: 0% Commission UPI Billing Gateway
+              Module 3: 0% Commission UPI Gateway
             </div>
-            <h2 class="text-2xl font-extrabold text-slate-900 leading-tight">
-              Stop Paying 2% Commissions on Every Payment
+            <h2 class="text-2xl font-black text-slate-900 leading-tight">
+              Stop Losing 2% of Every Payment to Gateway Intermediaries
             </h2>
-            <p class="text-xs text-slate-600 mt-1.5">
-              Traditional gateways take ₹10,000–₹40,000 every month from your hard-earned margins. We give you a direct UPI PG with <strong>zero transaction commissions</strong>.
+            <p class="text-xs text-slate-600 mt-1">
+              Razorpay and Paytm charge 2.0% on every transaction. Ashwath AI UPI PG charges <strong>0.0% commission</strong> with instant bank settlement.
             </p>
 
             <!-- Comparison Table -->
-            <div class="mt-4 bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+            <div class="mt-3.5 bg-slate-50 border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm">
               <div class="grid grid-cols-2 text-center text-xs font-bold border-b border-slate-200">
-                <div class="p-2.5 bg-slate-100 text-slate-500">Other Gateways (Razorpay/Paytm)</div>
-                <div class="p-2.5 bg-emerald-600 text-white">Ashwath AI (UPI PG)</div>
+                <div class="p-2.5 bg-slate-100 text-slate-500">Other Gateways (2%)</div>
+                <div class="p-2.5 bg-emerald-600 text-white font-extrabold">Ashwath AI UPI PG</div>
               </div>
               <div class="grid grid-cols-2 text-center text-xs border-b border-slate-200 divide-x divide-slate-200">
-                <div class="p-2.5 text-red-600 font-bold">2.0% Per Transaction</div>
-                <div class="p-2.5 text-emerald-700 font-extrabold">0.0% (ZERO Commission)</div>
+                <div class="p-2 text-red-600 font-bold">2.0% Cut Per Swipe</div>
+                <div class="p-2 text-emerald-700 font-extrabold">0.0% (ZERO Fees)</div>
               </div>
               <div class="grid grid-cols-2 text-center text-xs border-b border-slate-200 divide-x divide-slate-200">
-                <div class="p-2.5 text-slate-600">T+2 Days Settlement</div>
-                <div class="p-2.5 text-emerald-700 font-bold">Instant to Your Bank</div>
+                <div class="p-2 text-slate-600">T+2 Settlement Delay</div>
+                <div class="p-2 text-emerald-700 font-bold">Instant to Your Bank</div>
               </div>
               <div class="grid grid-cols-2 text-center text-xs divide-x divide-slate-200">
-                <div class="p-2.5 text-slate-600">Complex Merchant KYC</div>
-                <div class="p-2.5 text-emerald-700 font-bold">Simple 1-Time Setup</div>
+                <div class="p-2 text-slate-600">Recurring Deductions</div>
+                <div class="p-2 text-emerald-700 font-bold">1-Time Simple Setup</div>
               </div>
             </div>
 
             <!-- Savings Banner -->
-            <div class="mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center">
+            <div class="mt-3.5 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center shadow-sm">
               <span class="text-[11px] text-emerald-800 font-medium">On ₹10 Lakhs monthly turnover, you save:</span>
-              <div class="text-lg font-black text-emerald-700">₹2,40,000 Every Single Year!</div>
+              <div class="text-xl font-black text-emerald-700">₹2,40,000 Kept Every Year!</div>
             </div>
           </div>
 
           <div class="pb-6">
-            <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20tell%20me%20about%20the%200%25%20UPI%20billing%20gateway%20setup." target="_blank" class="w-full py-3 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
+            <a href="https://wa.me/918700800175?text=Hi%20Ashwath%20AI%2C%20tell%20me%20about%20the%200%25%20UPI%20billing%20gateway%20setup." target="_blank" class="w-full py-3 bg-slate-900 hover:bg-black text-white font-black text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
               <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i>
-              Set Up 0% UPI PG For Your Pharmacy
+              Deploy 0% UPI PG for Your Pharmacy
             </a>
-            <div class="text-center text-[11px] text-slate-400 mt-3">↓ Swipe down to continue watching reels</div>
+            <div class="text-center text-[11px] text-slate-400 mt-2 font-medium">↓ Swipe down to continue watching reels</div>
           </div>
         </section>
 
         <!-- ==================== REEL 08 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="10" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="10" data-type="reel" data-title="PCOS / PCOD Hormonal Balance">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep08-pcospcod.jpg">
             <source src="videos/ep08-pcospcod.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 08 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 08 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">PCOS / PCOD Hormonal Balance</h3>
+            <h3 class="text-base font-extrabold leading-snug">PCOS / PCOD Hormonal Balance</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Androgen surge, cystic ovaries, irregular menstrual cycles & insulin sensitivity.</p>
           </div>
         </section>
 
         <!-- ==================== REEL 09 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="11" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="11" data-type="reel" data-title="Chronic Insomnia & Sleep Breakdown">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep09-insomnia.jpg">
             <source src="videos/ep09-insomnia.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 09 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 09 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Chronic Insomnia & Sleep Breakdown</h3>
+            <h3 class="text-base font-extrabold leading-snug">Chronic Insomnia & Sleep Breakdown</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Cortisol vs melatonin conflict, REM sleep deficits & circadian reset.</p>
           </div>
         </section>
 
         <!-- ==================== REEL 10 ==================== -->
-        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="12" data-type="reel">
+        <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="12" data-type="reel" data-title="Early Kidney Strain & Silent Markers">
           <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep10-kidney-strain.jpg">
             <source src="videos/ep10-kidney-strain.mp4" type="video/mp4">
           </video>
           
-          <div class="absolute bottom-4 left-3 right-3 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white">
+          <div class="absolute bottom-5 left-3 right-16 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-2xl text-white pointer-events-none">
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2 py-0.5 bg-emerald-500 text-black font-extrabold text-[10px] rounded-full uppercase">Episode 10 of 10</span>
-              <span class="text-xs text-slate-300">Stickman Explainer</span>
+              <span class="px-2 py-0.5 bg-emerald-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">Episode 10 of 10</span>
+              <span class="text-xs text-slate-300">Stickman Clinical Explainer</span>
             </div>
-            <h3 class="text-base font-bold leading-snug">Early Kidney Strain & Silent Markers</h3>
+            <h3 class="text-base font-extrabold leading-snug">Early Kidney Strain & Silent Markers</h3>
             <p class="text-xs text-slate-300 mt-0.5 line-clamp-1">Creatinine warning levels, nephron filtration strain & hydration markers.</p>
           </div>
         </section>
 
         <!-- ==================== AD CARD 4 / GRAND FINALE BUNDLE ==================== -->
-        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-gradient-to-b from-slate-900 to-black text-white" data-index="13" data-type="ad">
+        <section class="snap-item relative w-full h-full flex flex-col justify-between p-6 bg-gradient-to-b from-slate-900 to-black text-white" data-index="13" data-type="ad" data-title="Complete Operating Suite Bundle">
           <div class="pt-10">
             <div class="flex items-center gap-3 mb-3">
-              <img src="assets/dr_stickman.png" alt="Dr. Stickman" class="w-12 h-12 rounded-full border-2 border-emerald-400 bg-white">
+              <img src="assets/dr_stickman.png" alt="Dr. Stickman" class="w-12 h-12 rounded-full border-2 border-emerald-400 bg-white shadow-lg shadow-emerald-500/20">
               <div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-emerald-400">Ashwath AI Full Suite</span>
+                <span class="text-[10px] uppercase font-black tracking-wider text-emerald-400">Ashwath AI Operating Suite</span>
                 <h2 class="text-xl font-black">All-in-One Pharmacy Operating Suite</h2>
               </div>
             </div>
@@ -647,14 +740,17 @@
 
       </div>
 
-      <!-- BOTTOM MOBILE NAVIGATION BAR -->
+      <!-- BOTTOM MOBILE NAVIGATION & EPISODE DRAWER TRIGGER -->
       <div class="absolute bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/80 px-4 py-2.5 flex items-center justify-between text-slate-600">
         <button id="prevBtn" class="flex items-center gap-1 text-xs font-bold hover:text-slate-900 transition">
           <i data-lucide="chevron-up" class="w-4 h-4"></i>
           <span>Prev</span>
         </button>
 
-        <span id="slideIndicator" class="text-xs font-extrabold text-slate-800 tracking-wider">1 / 14</span>
+        <button onclick="toggleDrawer()" class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition">
+          <i data-lucide="layout-list" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span id="slideIndicator" class="text-xs font-extrabold text-slate-800 tracking-wider">1 / 14</span>
+        </button>
 
         <button id="nextBtn" class="flex items-center gap-1 text-xs font-bold hover:text-slate-900 transition">
           <span>Next</span>
@@ -662,11 +758,30 @@
         </button>
       </div>
 
+      <!-- SLIDE-UP EPISODES DRAWER MODAL -->
+      <div id="epDrawer" class="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-end">
+        <div class="bg-white rounded-t-3xl max-h-[75%] overflow-y-auto p-5 text-slate-900 shadow-2xl transform translate-y-full transition-transform duration-300" id="drawerSheet">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div>
+              <h3 class="font-black text-sm text-slate-900">Showcase Index (14 Cards)</h3>
+              <p class="text-[11px] text-slate-500">Tap any episode or solution module to jump</p>
+            </div>
+            <button onclick="toggleDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 bg-slate-100 rounded-full">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="mt-3 space-y-1.5 text-xs font-bold" id="drawerList">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
 
-  <!-- Client-side Video Autoplay & Intersection Observer Script -->
+  <!-- Client-side Video Autoplay & Interactive Playground Script -->
   <script>
     lucide.createIcons();
 
@@ -674,12 +789,49 @@
     const sections = Array.from(feed.querySelectorAll('.snap-item'));
     const slideIndicator = document.getElementById('slideIndicator');
     const globalMuteBtn = document.getElementById('globalMuteBtn');
-    const muteIcon = document.getElementById('muteIcon');
+    const muteLabel = document.getElementById('muteLabel');
+    const eqVisualizer = document.getElementById('eqVisualizer');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    
+    const storySegments = document.getElementById('storySegments');
+    const swipeHint = document.getElementById('swipeHint');
+    const toastBox = document.getElementById('toastBox');
+    const toastMsg = document.getElementById('toastMsg');
+    const epDrawer = document.getElementById('epDrawer');
+    const drawerSheet = document.getElementById('drawerSheet');
+    const drawerList = document.getElementById('drawerList');
+
     let isMuted = true;
     let currentIdx = 0;
+    let hasScrolledOnce = false;
+
+    // Build 14 Story Progress Segments at Top
+    sections.forEach((_, idx) => {
+      const seg = document.createElement('div');
+      seg.className = `h-1 flex-1 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-white shadow' : 'bg-white/30'}`;
+      seg.id = `story-seg-${idx}`;
+      storySegments.appendChild(seg);
+    });
+
+    // Populate Episode Drawer List
+    sections.forEach((sec, idx) => {
+      const type = sec.getAttribute('data-type');
+      const title = sec.getAttribute('data-title') || `Slide ${idx + 1}`;
+      const item = document.createElement('div');
+      item.className = `p-2.5 rounded-xl border flex items-center justify-between cursor-pointer transition ${type === 'ad' ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' : 'bg-slate-50 border-slate-200 text-slate-800 hover:bg-slate-100'}`;
+      item.innerHTML = `
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] font-black px-1.5 py-0.5 rounded ${type === 'ad' ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-700'}">${idx + 1}</span>
+          <span class="text-xs truncate max-w-[240px]">${title}</span>
+        </div>
+        <i data-lucide="${type === 'ad' ? 'sparkles' : 'play'}" class="w-3.5 h-3.5 text-slate-400"></i>
+      `;
+      item.onclick = () => {
+        jumpToSlide(idx);
+        toggleDrawer();
+      };
+      drawerList.appendChild(item);
+    });
 
     // Global Mute Toggle
     globalMuteBtn.addEventListener('click', () => {
@@ -688,11 +840,19 @@
         const vid = sec.querySelector('video');
         if (vid) vid.muted = isMuted;
       });
-      muteIcon.setAttribute('data-lucide', isMuted ? 'volume-x' : 'volume-2');
-      lucide.createIcons();
+      muteLabel.textContent = isMuted ? 'Mute' : 'Audio On';
+      if (!isMuted) {
+        eqVisualizer.children[0].className = 'w-0.5 bg-emerald-400 rounded-full eq-bar-1';
+        eqVisualizer.children[1].className = 'w-0.5 bg-emerald-400 rounded-full eq-bar-2';
+        eqVisualizer.children[2].className = 'w-0.5 bg-emerald-400 rounded-full eq-bar-3';
+      } else {
+        eqVisualizer.children[0].className = 'w-0.5 bg-emerald-400 rounded-full h-1';
+        eqVisualizer.children[1].className = 'w-0.5 bg-emerald-400 rounded-full h-2';
+        eqVisualizer.children[2].className = 'w-0.5 bg-emerald-400 rounded-full h-1';
+      }
     });
 
-    // Observer to play visible video and pause others
+    // Observer to play visible video and update story segments
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const sec = entry.target;
@@ -702,10 +862,27 @@
         if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
           currentIdx = idx;
           slideIndicator.textContent = `${currentIdx + 1} / ${sections.length}`;
+
+          // Update story segments
+          sections.forEach((_, sIdx) => {
+            const seg = document.getElementById(`story-seg-${sIdx}`);
+            if (seg) {
+              if (sIdx <= currentIdx) {
+                seg.className = 'h-1 flex-1 rounded-full bg-white transition-all duration-300';
+              } else {
+                seg.className = 'h-1 flex-1 rounded-full bg-white/30 transition-all duration-300';
+              }
+            }
+          });
           
           if (vid) {
             vid.muted = isMuted;
             vid.play().catch(e => console.log('Autoplay prevented:', e));
+          }
+
+          if (currentIdx > 0 && !hasScrolledOnce) {
+            hasScrolledOnce = true;
+            swipeHint.style.opacity = '0';
           }
         } else {
           if (vid) {
@@ -734,18 +911,108 @@
       }
     });
 
+    // Navigation Jump
+    window.jumpToSlide = function(idx) {
+      if (sections[idx]) {
+        sections[idx].scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
     // Prev / Next Buttons
     prevBtn.addEventListener('click', () => {
       if (currentIdx > 0) {
-        sections[currentIdx - 1].scrollIntoView({ behavior: 'smooth' });
+        jumpToSlide(currentIdx - 1);
       }
     });
 
     nextBtn.addEventListener('click', () => {
       if (currentIdx < sections.length - 1) {
-        sections[currentIdx + 1].scrollIntoView({ behavior: 'smooth' });
+        jumpToSlide(currentIdx + 1);
       }
     });
+
+    // Drawer Toggle
+    window.toggleDrawer = function() {
+      const isOpen = !epDrawer.classList.contains('pointer-events-none');
+      if (isOpen) {
+        epDrawer.classList.add('opacity-0', 'pointer-events-none');
+        drawerSheet.classList.add('translate-y-full');
+      } else {
+        epDrawer.classList.remove('opacity-0', 'pointer-events-none');
+        drawerSheet.classList.remove('translate-y-full');
+      }
+    };
+
+    // Heart Like Toggle
+    window.toggleHeart = function(btn) {
+      const icon = btn.querySelector('.heart-icon');
+      const count = btn.querySelector('.heart-count');
+      const isLiked = icon.classList.contains('heart-active');
+      if (!isLiked) {
+        icon.classList.add('heart-active');
+        count.textContent = '1.9k';
+      } else {
+        icon.classList.remove('heart-active');
+        count.textContent = '1.8k';
+      }
+    };
+
+    // Inquire Active Episode on WhatsApp
+    window.inquireActiveEpisode = function() {
+      const activeTitle = sections[currentIdx].getAttribute('data-title') || 'your medical reels';
+      const msg = encodeURIComponent(`Hi Ashwath AI team, I am reviewing your portfolio showcase and would like to inquire about "${activeTitle}".`);
+      window.open(`https://wa.me/918700800175?text=${msg}`, '_blank');
+    };
+
+    // Share / Copy Link
+    window.copyShareLink = function() {
+      navigator.clipboard.writeText(window.location.href);
+      showToast('Copied showcase link to clipboard!');
+    };
+
+    function showToast(msg) {
+      toastMsg.textContent = msg;
+      toastBox.classList.remove('opacity-0', '-translate-y-2');
+      toastBox.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toastBox.classList.remove('opacity-100', 'translate-y-0');
+        toastBox.classList.add('opacity-0', '-translate-y-2');
+      }, 2500);
+    }
+
+    // Interactive WhatsApp Chat Messages (Demo Playground)
+    window.addChatMsg = function(type) {
+      const box = document.getElementById('chatMessages');
+      if (type === 'refill') {
+        box.innerHTML += `
+          <div class="flex justify-start">
+            <div class="bg-blue-900/80 border border-blue-700 text-blue-100 px-3 py-1.5 rounded-xl rounded-tl-none text-[10px]">
+              🔔 <strong>Automated Day-28 Refill Alert:</strong><br>
+              "Namaste Ramesh ji! Your Telmisartan BP pills run out in 2 days. Reply 'YES' to dispatch your 30-day refill at 40% discount!"
+            </div>
+          </div>
+        `;
+      } else if (type === 'pay') {
+        box.innerHTML += `
+          <div class="flex justify-start">
+            <div class="bg-emerald-950 border border-emerald-600 text-emerald-200 px-3 py-1.5 rounded-xl rounded-tl-none text-[10px]">
+              ⚡ <strong>0% Commission UPI Payment Link:</strong><br>
+              "Click to pay ₹205 via GPay / PhonePe / Paytm. Zero merchant fee deducted!"
+            </div>
+          </div>
+        `;
+      } else if (type === 'delivery') {
+        box.innerHTML += `
+          <div class="flex justify-start">
+            <div class="bg-purple-950 border border-purple-700 text-purple-200 px-3 py-1.5 rounded-xl rounded-tl-none text-[10px]">
+              🛵 <strong>Live Dispatch Alert:</strong><br>
+              "Order #8492 out for delivery with live WhatsApp delivery agent tracking."
+            </div>
+          </div>
+        `;
+      }
+      box.scrollTop = box.scrollHeight;
+    };
 
     // Desktop Calculator Logic
     const turnoverSlider = document.getElementById('turnoverSlider');
@@ -756,7 +1023,6 @@
       turnoverSlider.addEventListener('input', (e) => {
         const val = parseInt(e.target.value);
         calcTurnoverDisplay.textContent = '₹' + val.toLocaleString('en-IN') + ' / mo';
-        // 2% commission annual savings
         const annualSavings = val * 0.02 * 12;
         calcSavingsDisplay.textContent = '₹' + annualSavings.toLocaleString('en-IN') + ' / yr';
       });
