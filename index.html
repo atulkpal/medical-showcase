@@ -324,8 +324,9 @@
 
         <div class="flex items-center gap-2 pointer-events-auto">
           <!-- Fullscreen Toggle Button (Android/iOS) -->
-          <button id="fullscreenBtn" onclick="toggleFullscreen()" class="p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center" title="Full Screen View">
+          <button id="fullscreenBtn" onclick="toggleFullscreen()" class="p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center gap-1.5" title="Full Screen View">
             <i data-lucide="maximize" id="fullscreenIcon" class="w-4 h-4"></i>
+            <span id="fullscreenLabel" class="hidden text-[11px] font-black tracking-wide pr-0.5">Exit Full</span>
           </button>
 
           <!-- Speaker Audio Toggle Button -->
@@ -369,9 +370,9 @@
 
       <!-- FLOATING SWIPE-UP GUIDE (First slide hint, disappears on scroll) -->
       <div id="swipeHint" class="absolute bottom-16 left-0 right-0 z-30 flex justify-center pointer-events-none transition-opacity duration-500">
-        <div class="px-3.5 py-1.5 bg-black/70 backdrop-blur-md rounded-full text-white text-[11px] font-semibold flex items-center gap-1.5 border border-white/20 shadow-lg bounce-guide">
-          <span>Swipe up for next reel</span>
-          <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
+        <div class="px-3.5 py-1.5 bg-black/75 backdrop-blur-md rounded-full text-white text-[11px] font-semibold flex items-center gap-1.5 border border-white/20 shadow-lg bounce-guide">
+          <i data-lucide="maximize" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Tap screen for Full Screen • Swipe up for next</span>
         </div>
       </div>
 
@@ -1176,16 +1177,21 @@
       const doc = document.documentElement;
       if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         if (doc.requestFullscreen) {
-          doc.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+          doc.requestFullscreen().then(() => {
+            showToast('Full Screen Active • Tap "Exit Full" to exit');
+          }).catch(err => console.log('Fullscreen error:', err));
         } else if (doc.webkitRequestFullscreen) {
           doc.webkitRequestFullscreen();
+          showToast('Full Screen Active • Tap "Exit Full" to exit');
         }
-        showToast('Full Screen Mode Activated');
       } else {
         if (document.exitFullscreen) {
-          document.exitFullscreen().catch(err => console.log('Exit fullscreen error:', err));
+          document.exitFullscreen().then(() => {
+            showToast('Exited Full Screen Mode');
+          }).catch(err => console.log('Exit fullscreen error:', err));
         } else if (document.webkitExitFullscreen) {
           document.webkitExitFullscreen();
+          showToast('Exited Full Screen Mode');
         }
       }
     };
@@ -1193,13 +1199,53 @@
     function updateFullscreenIcon() {
       const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
       const icon = document.getElementById('fullscreenIcon');
+      const btn = document.getElementById('fullscreenBtn');
+      const label = document.getElementById('fullscreenLabel');
+
       if (icon) {
         icon.setAttribute('data-lucide', isFs ? 'minimize' : 'maximize');
-        if (window.lucide) lucide.createIcons();
       }
+      if (label) {
+        if (isFs) {
+          label.classList.remove('hidden');
+        } else {
+          label.classList.add('hidden');
+        }
+      }
+      if (btn) {
+        if (isFs) {
+          btn.className = "px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full border border-emerald-400 shadow-lg shadow-emerald-500/40 flex items-center justify-center gap-1.5 transition";
+          btn.title = "Exit Full Screen Mode";
+        } else {
+          btn.className = "p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center";
+          btn.title = "Enter Full Screen View";
+        }
+      }
+      if (window.lucide) lucide.createIcons();
     }
     document.addEventListener('fullscreenchange', updateFullscreenIcon);
     document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+
+    // Auto-enter fullscreen on first user touch/tap anywhere on reels feed
+    let hasAttemptedAutoFs = false;
+    function autoEnterFsOnFirstTap(e) {
+      if (hasAttemptedAutoFs) return;
+      if (e && e.target && e.target.closest('button, a, input, #epDrawer, #shareDrawer')) {
+        return;
+      }
+      hasAttemptedAutoFs = true;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        const doc = document.documentElement;
+        const req = doc.requestFullscreen || doc.webkitRequestFullscreen;
+        if (req) {
+          req.call(doc).then(() => {
+            showToast('Full Screen Active • Tap "Exit Full" anytime');
+          }).catch(() => {});
+        }
+      }
+    }
+    feed.addEventListener('click', autoEnterFsOnFirstTap);
+    feed.addEventListener('touchend', autoEnterFsOnFirstTap, { passive: true });
 
     // PWA Install Prompt Listener (Chrome on Android)
     let deferredInstallPrompt = null;
