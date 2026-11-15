@@ -85,7 +85,7 @@
       scroll-snap-stop: always;
     }
 
-    /* Mobile 100dvh dynamic viewport for Android & iOS */
+    /* Mobile 100dvh dynamic viewport & iPhone Safe Area Insets */
     @media (max-width: 768px) {
       html, body {
         height: 100dvh !important;
@@ -100,6 +100,16 @@
         max-height: 100dvh !important;
         border-radius: 0 !important;
         border: none !important;
+      }
+      /* iPhone Notch, Dynamic Island & Home Bar Insets */
+      .safe-top-bar {
+        top: max(16px, env(safe-area-inset-top, 16px)) !important;
+      }
+      .safe-story-segments {
+        top: max(8px, env(safe-area-inset-top, 8px)) !important;
+      }
+      .safe-bottom-nav {
+        padding-bottom: max(14px, env(safe-area-inset-bottom, 14px)) !important;
       }
     }
 
@@ -308,12 +318,12 @@
       </div>
 
       <!-- TOP STORY PROGRESS SEGMENTS BAR (Instagram/Reels Style) -->
-      <div class="absolute top-2 md:top-8 left-3 right-3 z-40 flex items-center gap-1 pointer-events-none" id="storySegments">
+      <div class="safe-story-segments absolute top-2 md:top-8 left-3 right-3 z-40 flex items-center gap-1 pointer-events-none" id="storySegments">
         <!-- 14 story dashes rendered dynamically by JS -->
       </div>
 
       <!-- TOP FLOATING HEADER (Mobile & Desktop) -->
-      <div class="absolute top-4 md:top-11 left-0 right-0 z-40 px-3.5 flex items-center justify-between pointer-events-none">
+      <div class="safe-top-bar absolute top-4 md:top-11 left-0 right-0 z-40 px-3.5 flex items-center justify-between pointer-events-none">
         <div class="flex items-center gap-2 pointer-events-auto">
           <div class="flex items-center gap-1.5 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full shadow-md border border-slate-200/80">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
@@ -389,7 +399,7 @@
         
         <!-- ==================== REEL 01 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="0" data-type="reel" data-title="Fatty Liver Disease (NAFLD)">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="metadata" poster="thumbnails/ep01-fatty-liver.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="metadata" poster="thumbnails/ep01-fatty-liver.jpg">
             <source src="videos/ep01-fatty-liver.mp4" type="video/mp4">
           </video>
           
@@ -405,7 +415,7 @@
 
         <!-- ==================== REEL 02 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="1" data-type="reel" data-title="Type 2 Diabetes & Insulin Resistance">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep02-diabetes-insulin.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep02-diabetes-insulin.jpg">
             <source src="videos/ep02-diabetes-insulin.mp4" type="video/mp4">
           </video>
           
@@ -482,7 +492,7 @@
 
         <!-- ==================== REEL 03 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="3" data-type="reel" data-title="Hypertension & High Blood Pressure">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep03-hypertension-bp.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep03-hypertension-bp.jpg">
             <source src="videos/ep03-hypertension-bp.mp4" type="video/mp4">
           </video>
           
@@ -498,7 +508,7 @@
 
         <!-- ==================== REEL 04 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="4" data-type="reel" data-title="Acid Reflux & Severe GERD">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep04-gerd-acidity.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep04-gerd-acidity.jpg">
             <source src="videos/ep04-gerd-acidity.mp4" type="video/mp4">
           </video>
           
@@ -514,7 +524,7 @@
 
         <!-- ==================== REEL 05 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="5" data-type="reel" data-title="Cholesterol & Plaque Buildup">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep05-cholesterol-plaque.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep05-cholesterol-plaque.jpg">
             <source src="videos/ep05-cholesterol-plaque.mp4" type="video/mp4">
           </video>
           
@@ -602,7 +612,7 @@
 
         <!-- ==================== REEL 06 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="7" data-type="reel" data-title="Uric Acid & Gout Attack">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep06-uric-acid-gout.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep06-uric-acid-gout.jpg">
             <source src="videos/ep06-uric-acid-gout.mp4" type="video/mp4">
           </video>
           
@@ -618,7 +628,7 @@
 
         <!-- ==================== REEL 07 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="8" data-type="reel" data-title="Hypothyroidism & Slow Metabolism">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep07-hypothyroidism.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep07-hypothyroidism.jpg">
             <source src="videos/ep07-hypothyroidism.mp4" type="video/mp4">
           </video>
           
@@ -684,7 +694,7 @@
 
         <!-- ==================== REEL 08 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="10" data-type="reel" data-title="PCOS / PCOD Hormonal Balance">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep08-pcospcod.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep08-pcospcod.jpg">
             <source src="videos/ep08-pcospcod.mp4" type="video/mp4">
           </video>
           
@@ -700,7 +710,7 @@
 
         <!-- ==================== REEL 09 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="11" data-type="reel" data-title="Chronic Insomnia & Sleep Breakdown">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep09-insomnia.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep09-insomnia.jpg">
             <source src="videos/ep09-insomnia.mp4" type="video/mp4">
           </video>
           
@@ -716,7 +726,7 @@
 
         <!-- ==================== REEL 10 ==================== -->
         <section class="snap-item relative w-full h-full flex items-center justify-center bg-black" data-index="12" data-type="reel" data-title="Early Kidney Strain & Silent Markers">
-          <video class="reel-video w-full h-full object-cover" loop playsinline preload="none" poster="thumbnails/ep10-kidney-strain.jpg">
+          <video class="reel-video w-full h-full object-cover" loop playsinline webkit-playsinline preload="none" poster="thumbnails/ep10-kidney-strain.jpg">
             <source src="videos/ep10-kidney-strain.mp4" type="video/mp4">
           </video>
           
@@ -787,7 +797,7 @@
       </div>
 
       <!-- BOTTOM MOBILE NAVIGATION & EPISODE DRAWER TRIGGER -->
-      <div class="absolute bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/80 px-4 py-2.5 flex items-center justify-between text-slate-600">
+      <div class="safe-bottom-nav absolute bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/80 px-4 py-2.5 flex items-center justify-between text-slate-600">
         <button id="prevBtn" class="flex items-center gap-1 text-xs font-bold hover:text-slate-900 transition">
           <i data-lucide="chevron-up" class="w-4 h-4"></i>
           <span>Prev</span>
@@ -899,6 +909,65 @@
               Copy
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- SLIDE-UP IOS INSTALL & FULLSCREEN GUIDE MODAL -->
+      <div id="iosDrawer" class="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-end">
+        <div class="bg-white rounded-t-3xl p-6 text-slate-900 shadow-2xl transform translate-y-full transition-transform duration-300 safe-bottom-nav" id="iosSheet">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold shadow-md">
+                <i data-lucide="smartphone" class="w-5 h-5 text-emerald-400"></i>
+              </div>
+              <div>
+                <h3 class="font-black text-sm text-slate-900">iPhone Full Screen App</h3>
+                <p class="text-[11px] text-slate-500">Add to Home Screen (Removes Safari bars)</p>
+              </div>
+            </div>
+            <button onclick="toggleIosDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 bg-slate-100 rounded-full">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Step-by-step Apple Guide -->
+          <div class="my-4 space-y-2.5 text-xs">
+            <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/80">
+              <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-black text-xs flex items-center justify-center shrink-0 mt-0.5">1</div>
+              <div>
+                <div class="font-bold text-slate-900">Tap Safari's Share Icon</div>
+                <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1.5">
+                  Tap the <i data-lucide="share" class="w-3.5 h-3.5 text-blue-600 inline"></i> share icon at the bottom of Safari.
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/80">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-black text-xs flex items-center justify-center shrink-0 mt-0.5">2</div>
+              <div>
+                <div class="font-bold text-slate-900">Select "Add to Home Screen"</div>
+                <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1.5">
+                  Scroll down and tap <i data-lucide="plus-square" class="w-3.5 h-3.5 text-emerald-600 inline"></i> <strong>Add to Home Screen</strong>.
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/80">
+              <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 font-black text-xs flex items-center justify-center shrink-0 mt-0.5">3</div>
+              <div>
+                <div class="font-bold text-slate-900">Launch Borderless App</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">
+                  Tap <strong>Add</strong>. Open Ashwath AI from your home screen for full borderless reels!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Native Video Player Fallback Button -->
+          <button onclick="playActiveVideoNativeIos()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition">
+            <i data-lucide="play-circle" class="w-4 h-4"></i>
+            <span>Or Watch Reel in iOS Native Fullscreen Player</span>
+          </button>
         </div>
       </div>
 
@@ -1172,8 +1241,49 @@
       box.scrollTop = box.scrollHeight;
     };
 
-    // Fullscreen Mode Toggle (HTML5 Fullscreen API for Android/iOS)
+    // iOS & Standalone PWA Detection
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+
+    const iosDrawer = document.getElementById('iosDrawer');
+    const iosSheet = document.getElementById('iosSheet');
+
+    window.toggleIosDrawer = function() {
+      const isOpen = !iosDrawer.classList.contains('pointer-events-none');
+      if (isOpen) {
+        iosDrawer.classList.add('opacity-0', 'pointer-events-none');
+        iosSheet.classList.add('translate-y-full');
+      } else {
+        iosDrawer.classList.remove('opacity-0', 'pointer-events-none');
+        iosSheet.classList.remove('translate-y-full');
+      }
+    };
+
+    window.playActiveVideoNativeIos = function() {
+      const activeSec = sections[currentIdx];
+      const vid = activeSec ? activeSec.querySelector('video') : null;
+      if (vid) {
+        vid.muted = isMuted;
+        if (vid.webkitEnterFullscreen) {
+          vid.webkitEnterFullscreen();
+        } else if (vid.requestFullscreen) {
+          vid.requestFullscreen();
+        }
+      }
+      toggleIosDrawer();
+    };
+
+    // Fullscreen Mode Toggle (HTML5 Fullscreen API for Android/Desktop, Add-to-Home-Screen for iOS)
     window.toggleFullscreen = function() {
+      if (isIOS) {
+        if (isStandalone) {
+          showToast('App running in native Full Screen mode!');
+        } else {
+          toggleIosDrawer();
+        }
+        return;
+      }
+
       const doc = document.documentElement;
       if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         if (doc.requestFullscreen) {
@@ -1197,7 +1307,7 @@
     };
 
     function updateFullscreenIcon() {
-      const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+      const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement || isStandalone);
       const icon = document.getElementById('fullscreenIcon');
       const btn = document.getElementById('fullscreenBtn');
       const label = document.getElementById('fullscreenLabel');
@@ -1226,11 +1336,11 @@
     document.addEventListener('fullscreenchange', updateFullscreenIcon);
     document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
 
-    // Auto-enter fullscreen on first user touch/tap anywhere on reels feed
+    // Auto-enter fullscreen on first user touch/tap anywhere on reels feed (Android / Desktop)
     let hasAttemptedAutoFs = false;
     function autoEnterFsOnFirstTap(e) {
-      if (hasAttemptedAutoFs) return;
-      if (e && e.target && e.target.closest('button, a, input, #epDrawer, #shareDrawer')) {
+      if (hasAttemptedAutoFs || isIOS) return;
+      if (e && e.target && e.target.closest('button, a, input, #epDrawer, #shareDrawer, #iosDrawer')) {
         return;
       }
       hasAttemptedAutoFs = true;
@@ -1257,6 +1367,10 @@
     });
 
     window.triggerPwaInstall = function() {
+      if (isIOS) {
+        toggleIosDrawer();
+        return;
+      }
       if (deferredInstallPrompt) {
         deferredInstallPrompt.prompt();
         deferredInstallPrompt.userChoice.then((choice) => {
