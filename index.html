@@ -308,10 +308,10 @@
           <span class="text-[10px] font-bold">Inquire</span>
         </button>
 
-        <!-- Share / Copy Link Button -->
-        <button onclick="copyShareLink()" class="flex flex-col items-center gap-1 group">
-          <div class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-black/60 transition shadow-lg">
-            <i data-lucide="share-2" class="w-4 h-4"></i>
+        <!-- Share on WhatsApp Button -->
+        <button onclick="shareOnWhatsApp()" class="flex flex-col items-center gap-1 group">
+          <div class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-emerald-600 transition shadow-lg">
+            <i data-lucide="share-2" class="w-4 h-4 text-white"></i>
           </div>
           <span class="text-[10px] font-bold">Share</span>
         </button>
@@ -954,10 +954,13 @@
       window.open(`https://wa.me/918700800175?text=${msg}`, '_blank');
     };
 
-    // Share / Copy Link
-    window.copyShareLink = function() {
-      navigator.clipboard.writeText(window.location.href);
-      showToast('Copied showcase link to clipboard!');
+    // Share on WhatsApp
+    window.shareOnWhatsApp = function() {
+      const activeTitle = sections[currentIdx].getAttribute('data-title') || 'Patient Education Explainer Reel';
+      const url = window.location.origin + window.location.pathname;
+      const text = encodeURIComponent(`*Ashwath AI Medical Showcase*\n\n🎬 Watch "${activeTitle}" & explore the 0% UPI Billing Gateway + 24/7 WhatsApp Rx Bot here:\n${url}`);
+      showToast('Opening WhatsApp to share...');
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     };
 
     function showToast(msg) {
