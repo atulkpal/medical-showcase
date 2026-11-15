@@ -308,8 +308,8 @@
           <span class="text-[10px] font-bold">Inquire</span>
         </button>
 
-        <!-- Share on WhatsApp Button -->
-        <button onclick="shareOnWhatsApp()" class="flex flex-col items-center gap-1 group">
+        <!-- Share Action Button -->
+        <button onclick="toggleShareDrawer()" class="flex flex-col items-center gap-1 group">
           <div class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-emerald-600 transition shadow-lg">
             <i data-lucide="share-2" class="w-4 h-4 text-white"></i>
           </div>
@@ -772,6 +772,64 @@
         </div>
       </div>
 
+      <!-- SLIDE-UP SHARE ACTION SHEET MODAL -->
+      <div id="shareDrawer" class="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-end">
+        <div class="bg-white rounded-t-3xl p-5 text-slate-900 shadow-2xl transform translate-y-full transition-transform duration-300" id="shareSheet">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="font-black text-sm text-slate-900">Share This Reel</h3>
+                <p class="text-[11px] text-slate-500 truncate max-w-[220px]" id="shareReelTitle">Episode 01: Fatty Liver Disease (NAFLD)</p>
+              </div>
+            </div>
+            <button onclick="toggleShareDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 bg-slate-100 rounded-full">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Share Options Grid -->
+          <div class="grid grid-cols-3 gap-2.5 my-4">
+            <!-- WhatsApp -->
+            <button onclick="shareDirectWhatsApp()" class="p-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-950 rounded-2xl border border-emerald-200 flex flex-col items-center gap-1.5 transition text-center group shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/30 group-hover:scale-105 transition">
+                <i data-lucide="message-circle" class="w-5 h-5 fill-white text-emerald-600"></i>
+              </div>
+              <span class="text-xs font-black">WhatsApp</span>
+              <span class="text-[9px] text-emerald-700 font-semibold">Send to Chat</span>
+            </button>
+
+            <!-- Email -->
+            <button onclick="shareDirectEmail()" class="p-3 bg-blue-50 hover:bg-blue-100 text-blue-950 rounded-2xl border border-blue-200 flex flex-col items-center gap-1.5 transition text-center group shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30 group-hover:scale-105 transition">
+                <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+              </div>
+              <span class="text-xs font-black">Email</span>
+              <span class="text-[9px] text-blue-700 font-semibold">Send via Mail</span>
+            </button>
+
+            <!-- Copy Link -->
+            <button onclick="shareDirectCopy()" class="p-3 bg-slate-50 hover:bg-slate-100 text-slate-900 rounded-2xl border border-slate-200 flex flex-col items-center gap-1.5 transition text-center group shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                <i data-lucide="link-2" class="w-5 h-5 text-white"></i>
+              </div>
+              <span class="text-xs font-black">Copy Link</span>
+              <span class="text-[9px] text-slate-500 font-semibold">To Clipboard</span>
+            </button>
+          </div>
+
+          <!-- Quick Copy Link Box -->
+          <div class="p-2.5 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
+            <span class="text-[11px] text-slate-600 truncate max-w-[240px]" id="shareLinkDisplay">https://medical-showcase-nine.vercel.app</span>
+            <button onclick="shareDirectCopy()" class="px-3 py-1 bg-slate-900 text-white font-bold rounded-lg text-xs hover:bg-black transition">
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -954,13 +1012,48 @@
       window.open(`https://wa.me/918700800175?text=${msg}`, '_blank');
     };
 
-    // Share on WhatsApp
-    window.shareOnWhatsApp = function() {
-      const activeTitle = sections[currentIdx].getAttribute('data-title') || 'Patient Education Explainer Reel';
+    // Share Action Sheet Modal
+    const shareDrawer = document.getElementById('shareDrawer');
+    const shareSheet = document.getElementById('shareSheet');
+    const shareReelTitle = document.getElementById('shareReelTitle');
+    const shareLinkDisplay = document.getElementById('shareLinkDisplay');
+
+    window.toggleShareDrawer = function() {
+      const isOpen = !shareDrawer.classList.contains('pointer-events-none');
+      if (isOpen) {
+        shareDrawer.classList.add('opacity-0', 'pointer-events-none');
+        shareSheet.classList.add('translate-y-full');
+      } else {
+        const title = sections[currentIdx].getAttribute('data-title') || 'Patient Education Explainer Reel';
+        shareReelTitle.textContent = title;
+        shareLinkDisplay.textContent = window.location.href;
+        shareDrawer.classList.remove('opacity-0', 'pointer-events-none');
+        shareSheet.classList.remove('translate-y-full');
+      }
+    };
+
+    window.shareDirectWhatsApp = function() {
+      const title = sections[currentIdx].getAttribute('data-title') || 'Patient Education Explainer Reel';
       const url = window.location.origin + window.location.pathname;
-      const text = encodeURIComponent(`*Ashwath AI Medical Showcase*\n\n🎬 Watch "${activeTitle}" & explore the 0% UPI Billing Gateway + 24/7 WhatsApp Rx Bot here:\n${url}`);
-      showToast('Opening WhatsApp to share...');
+      const text = encodeURIComponent(`*Ashwath AI Medical Showcase*\n\n🎬 Watch "${title}" & explore the 0% UPI Billing Gateway + 24/7 WhatsApp Rx Bot here:\n${url}`);
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      toggleShareDrawer();
+    };
+
+    window.shareDirectEmail = function() {
+      const title = sections[currentIdx].getAttribute('data-title') || 'Patient Education Explainer Reel';
+      const url = window.location.origin + window.location.pathname;
+      const subject = encodeURIComponent(`Ashwath AI: Patient Education Reel — ${title}`);
+      const body = encodeURIComponent(`Hello,\n\nI wanted to share this healthcare explainer reel: "${title}".\n\nYou can watch the interactive medical showcase and explore the 0% commission UPI billing gateway & 24/7 WhatsApp bot here:\n${url}\n\nBest regards,\nAshwath AI Team`);
+      window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
+      toggleShareDrawer();
+    };
+
+    window.shareDirectCopy = function() {
+      const url = window.location.origin + window.location.pathname;
+      navigator.clipboard.writeText(url);
+      showToast('Copied showcase link to clipboard!');
+      toggleShareDrawer();
     };
 
     function showToast(msg) {
