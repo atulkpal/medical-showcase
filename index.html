@@ -85,6 +85,24 @@
       scroll-snap-stop: always;
     }
 
+    /* Mobile 100dvh dynamic viewport for Android & iOS */
+    @media (max-width: 768px) {
+      html, body {
+        height: 100dvh !important;
+        height: -webkit-fill-available;
+        width: 100vw !important;
+        overflow: hidden !important;
+      }
+      .mobile-frame-container {
+        height: 100dvh !important;
+        height: -webkit-fill-available;
+        width: 100vw !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        border: none !important;
+      }
+    }
+
     /* Animated ECG Pulse Wave */
     @keyframes ecgTravel {
       0% { transform: translateX(-100%); }
@@ -279,7 +297,7 @@
     </div>
 
     <!-- PHONE MOCKUP / MOBILE FEED CONTAINER -->
-    <div class="relative w-full h-full md:safe-h md:w-[410px] md:max-h-[860px] md:rounded-[44px] md:shadow-2xl md:shadow-slate-300/90 md:border-[10px] md:border-slate-900 bg-black overflow-hidden flex flex-col">
+    <div class="mobile-frame-container relative w-full h-full md:safe-h md:w-[410px] md:max-h-[860px] md:rounded-[44px] md:shadow-2xl md:shadow-slate-300/90 md:border-[10px] md:border-slate-900 bg-black overflow-hidden flex flex-col">
       
       <!-- iPhone Notch / Dynamic Island (Desktop Frame only) -->
       <div class="hidden md:flex absolute top-0 left-0 right-0 z-50 justify-center pt-2.5 pointer-events-none">
@@ -305,6 +323,11 @@
         </div>
 
         <div class="flex items-center gap-2 pointer-events-auto">
+          <!-- Fullscreen Toggle Button (Android/iOS) -->
+          <button id="fullscreenBtn" onclick="toggleFullscreen()" class="p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center" title="Full Screen View">
+            <i data-lucide="maximize" id="fullscreenIcon" class="w-4 h-4"></i>
+          </button>
+
           <!-- Speaker Audio Toggle Button -->
           <button id="globalMuteBtn" class="p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center" title="Toggle Sound">
             <i data-lucide="volume-x" id="muteIcon" class="w-4 h-4"></i>
@@ -793,7 +816,28 @@
             </button>
           </div>
 
-          <div class="mt-3 space-y-1.5 text-xs font-bold" id="drawerList">
+          <!-- PWA Install / Fullscreen Android Helper -->
+          <div class="my-3 space-y-2">
+            <div id="pwaInstallBanner" class="p-3 bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl flex items-center justify-between shadow-md cursor-pointer hover:opacity-95 transition" onclick="triggerPwaInstall()">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center font-bold">
+                  <i data-lucide="smartphone" class="w-4 h-4 text-white"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-black">Install Fullscreen Mobile App</div>
+                  <div class="text-[10px] text-emerald-100">Add to Home Screen (Removes browser URL bar)</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-black bg-white text-emerald-900 px-2.5 py-1 rounded-lg shadow-sm">Install</span>
+            </div>
+
+            <button onclick="toggleFullscreen(); toggleDrawer();" class="w-full p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl flex items-center justify-center gap-2 text-xs font-bold transition">
+              <i data-lucide="maximize" class="w-4 h-4 text-emerald-600"></i>
+              <span>Toggle Full Screen Mode</span>
+            </button>
+          </div>
+
+          <div class="space-y-1.5 text-xs font-bold" id="drawerList">
             <!-- Populated dynamically by JS -->
           </div>
         </div>
@@ -1126,6 +1170,66 @@
       }
       box.scrollTop = box.scrollHeight;
     };
+
+    // Fullscreen Mode Toggle (HTML5 Fullscreen API for Android/iOS)
+    window.toggleFullscreen = function() {
+      const doc = document.documentElement;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (doc.requestFullscreen) {
+          doc.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+        } else if (doc.webkitRequestFullscreen) {
+          doc.webkitRequestFullscreen();
+        }
+        showToast('Full Screen Mode Activated');
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(err => console.log('Exit fullscreen error:', err));
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+      }
+    };
+
+    function updateFullscreenIcon() {
+      const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+      const icon = document.getElementById('fullscreenIcon');
+      if (icon) {
+        icon.setAttribute('data-lucide', isFs ? 'minimize' : 'maximize');
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+    document.addEventListener('fullscreenchange', updateFullscreenIcon);
+    document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+
+    // PWA Install Prompt Listener (Chrome on Android)
+    let deferredInstallPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const banner = document.getElementById('pwaInstallBanner');
+      if (banner) banner.classList.remove('hidden');
+    });
+
+    window.triggerPwaInstall = function() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choice) => {
+          if (choice.outcome === 'accepted') {
+            showToast('Ashwath AI installed to Home Screen!');
+          }
+          deferredInstallPrompt = null;
+        });
+      } else {
+        showToast('Tap Chrome menu (⋮) -> "Add to Home screen"');
+      }
+    };
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW register failed:', err));
+      });
+    }
 
     // Desktop Calculator Logic
     const turnoverSlider = document.getElementById('turnoverSlider');
