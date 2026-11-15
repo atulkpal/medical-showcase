@@ -278,14 +278,9 @@
         </div>
 
         <div class="flex items-center gap-2 pointer-events-auto">
-          <!-- Audio Toggle Button with Live Equalizer -->
-          <button id="globalMuteBtn" class="px-2.5 py-1.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition flex items-center gap-1.5" title="Toggle Sound">
-            <div id="eqVisualizer" class="flex items-end gap-0.5 h-3">
-              <span class="w-0.5 bg-emerald-400 rounded-full h-1"></span>
-              <span class="w-0.5 bg-emerald-400 rounded-full h-2"></span>
-              <span class="w-0.5 bg-emerald-400 rounded-full h-1"></span>
-            </div>
-            <span class="text-[11px] font-bold" id="muteLabel">Mute</span>
+          <!-- Speaker Audio Toggle Button -->
+          <button id="globalMuteBtn" class="p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center" title="Toggle Sound">
+            <i data-lucide="volume-x" id="muteIcon" class="w-4 h-4"></i>
           </button>
           
           <!-- Episode Switcher Drawer Pill -->
@@ -833,23 +828,18 @@
       drawerList.appendChild(item);
     });
 
-    // Global Mute Toggle
+    // Global Speaker Mute/Unmute Toggle
     globalMuteBtn.addEventListener('click', () => {
       isMuted = !isMuted;
       sections.forEach(sec => {
         const vid = sec.querySelector('video');
         if (vid) vid.muted = isMuted;
       });
-      muteLabel.textContent = isMuted ? 'Mute' : 'Audio On';
-      if (!isMuted) {
-        eqVisualizer.children[0].className = 'w-0.5 bg-emerald-400 rounded-full eq-bar-1';
-        eqVisualizer.children[1].className = 'w-0.5 bg-emerald-400 rounded-full eq-bar-2';
-        eqVisualizer.children[2].className = 'w-0.5 bg-emerald-400 rounded-full eq-bar-3';
-      } else {
-        eqVisualizer.children[0].className = 'w-0.5 bg-emerald-400 rounded-full h-1';
-        eqVisualizer.children[1].className = 'w-0.5 bg-emerald-400 rounded-full h-2';
-        eqVisualizer.children[2].className = 'w-0.5 bg-emerald-400 rounded-full h-1';
-      }
+      muteIcon.setAttribute('data-lucide', isMuted ? 'volume-x' : 'volume-2');
+      globalMuteBtn.className = isMuted
+        ? 'p-2.5 bg-black/60 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-black/80 transition shadow-md flex items-center justify-center'
+        : 'p-2.5 bg-emerald-600 backdrop-blur-md text-white rounded-full border border-emerald-400/50 hover:bg-emerald-700 transition shadow-md flex items-center justify-center';
+      lucide.createIcons();
     });
 
     // Observer to play visible video and update story segments
